@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 2 * * *' # Every day at 02:00 UTC
+    - cron: '0 2 * * *' # Every day at 02:00
   workflow_dispatch:
 
 jobs:
@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2 # Checkout the repository content to GitHub runner
 
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.11' # Install the Python version needed
 
       - name: Install Python packages
         run: |
@@ -35,7 +35,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          git diff-index --quiet HEAD || git commit -m "updated logs"
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
