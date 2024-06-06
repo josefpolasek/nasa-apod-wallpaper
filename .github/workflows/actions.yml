@@ -15,7 +15,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9' # Install the Python version needed
+          python-version: '3.11' # Install the Python version needed
 
       - name: install python packages
         run: |
@@ -35,10 +35,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          git diff-index --quiet HEAD || git commit -m "updated logs" --allow-empty
 
-      - name: fetch latest changes
-        run: git fetch origin
+      - name: Fetch and reset
+        run: |
+          git fetch origin
+          git reset --hard origin/main
 
       - name: merge changes
         run: git merge origin/main
