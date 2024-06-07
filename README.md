@@ -23,8 +23,8 @@ Every day, this script:
 ### Instructions on how to setup Apple Shortcuts on your iPhone
 
 <div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 10px; flex-wrap: wrap;">
-  <img src="media/img_1.png" style="height: auto; width: 30%;" alt="shortcut for downloading the picture"/>
-  <img src="media/img.png" style="height: auto; width: 30%;" alt="run every morning"/>
+  <img src="media/shortcuts1.jpeg" style="height: auto; width: 30%;" alt="shortcut for downloading the picture"/>
+  <img src="media/shortcuts2.jpeg" style="height: auto; width: 30%;" alt="run every morning"/>
 </div>
 
 1. Create a new shortcut to download the latest picture from your Dropbox.
