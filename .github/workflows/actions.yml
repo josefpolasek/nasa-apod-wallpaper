@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 2 * * *' # Every day at 02:00
+    - cron: '0 5 * * *' # Every day at 05:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -35,14 +35,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git diff-index --quiet HEAD || git commit -m "updated logs" --allow-empty
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
 
-      - name: Fetch and merge
-        run: |
-          git fetch origin
-          git pull origin main --rebase
-
-      - name: Push changes
+      - name: push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
